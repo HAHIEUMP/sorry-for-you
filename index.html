@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gửi em 💗</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
 <!-- Nhạc nền -->
 <audio id="bgm" src="music.mp3" loop></audio>
 
-<!-- Trái tim rơi -->
+<!-- Trái tim -->
 <div id="hearts"></div>
 
 <!-- MÀN 1 -->
 <div class="screen active" id="s1">
   <h1>Em à…</h1>
   <p>Anh có vài điều muốn nói, chỉ mong em đọc</p>
-  <button onclick="nextScreen(2)">Bấm vào đây nhé</button>
+  <button onclick="nextScreen(2); playMusic()">Bấm vào đây nhé</button>
 </div>
 
 <!-- MÀN 2 -->
@@ -32,23 +34,23 @@
   <button onclick="nextScreen(3)">Anh muốn cho em xem cái này</button>
 </div>
 
-<!-- MÀN 3: ẢNH + LỜI -->
+<!-- MÀN 3 -->
 <div class="screen" id="s3">
   <h2>Những điều anh chưa từng nói</h2>
 
   <div class="photo-block">
     <p>Khoảnh khắc này, anh thật sự hạnh phúc.</p>
-    <img src="img1.jpg" alt="Ảnh của hai đứa">
+    <img src="img1.jpg">
   </div>
 
   <div class="photo-block">
     <p>Em là chính em, không phải ai thay thế ai cả.</p>
-    <img src="img2.jpg" alt="Ảnh của em">
+    <img src="img2.jpg">
   </div>
 
   <div class="photo-block">
-    <p>Anh – người đã làm em buồn, và đang học cách yêu cho đúng.</p>
-    <img src="img3.jpg" alt="Ảnh của anh">
+    <p>Anh – người đang học cách yêu cho đúng.</p>
+    <img src="img3.jpg">
   </div>
 
   <button onclick="nextScreen(4)">Em đọc tiếp nhé</button>
@@ -62,7 +64,7 @@
     Không phải vì thói quen.<br>
     Mà vì em – ở hiện tại.
   </p>
-  <button onclick="nextScreen(5)">Điều cuối cùng</button>
+  <button onclick="nextScreen(5)">Anh còn một điều dễ thương nữa</button>
 </div>
 
 <!-- MÀN 5 -->
@@ -70,10 +72,28 @@
   <h1>Cho anh một cơ hội nhé?</h1>
   <p class="text">
     Anh không hứa hoàn hảo.<br>
-    Chỉ hứa chân thành và không làm em tổn thương thêm lần nữa.
+    Chỉ hứa chân thành và không làm em buồn thêm lần nữa.
+  </p>
+  <button onclick="nextScreen(6)">Bấm thử cái này nè 😆</button>
+</div>
+
+<!-- 🌈 MÀN 6 – ICON NHẢY + CHỮ RƠI -->
+<div class="screen" id="s6">
+  <h2>Anh phiên bản dễ thương nè 😳</h2>
+
+  <p class="text">
+    Không nói chuyện buồn nữa nha.<br>
+    Anh chỉ muốn em cười lại một chút 💗
+  </p>
+
+  <img src="chibi.png" class="chibi">
+
+  <p class="text small">
+    *anh đang nhảy đó… đừng cười anh 😆*
   </p>
 </div>
 
-<script src="script.js"></script>
+<!-- JS -->
+<script src="script.js?v=5"></script>
 </body>
 </html>
