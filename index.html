@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anh xin lỗi em</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  background: white;
+  width: 90%;
+  max-width: 360px;
+  padding: 30px 20px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+h2 {
+  color: #ef476f;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 26px;
+  border: none;
+  border-radius: 25px;
+  background: #ef476f;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d6336c;
+}
+
+#text {
+  font-size: 16px;
+  color: #444;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+img {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MÀN 1: BẤT NGỜ -->
+<div class="card" id="screen1">
+  <h2>🎁 Có bất ngờ nè</h2>
+  <p>Chỉ dành cho một người duy nhất</p>
+  <button onclick="openGift()">Nhấn để mở</button>
+</div>
+
+<!-- MÀN 2: XIN LỖI -->
+<div class="card hidden" id="screen2">
+  <h2>Gửi em 🤍</h2>
+  <div id="text"></div>
+  <button onclick="next()">Tiếp theo</button>
+</div>
+
+<!-- MÀN 3: HÌNH + CHỐT -->
+<div class="card hidden" id="screen3">
+  <h2>Anh chọn em</h2>
+
+  <!-- ĐỔI LINK ẢNH TẠI ĐÂY -->
+  <img src="https://i.imgur.com/0Z8FQzZ.jpeg">
+
+  <p style="margin-top:15px; color:#444;">
+    Em không phải người thay thế.<br>
+    Em là lựa chọn anh nghiêm túc.<br>
+    Và vẫn luôn là em.
+  </p>
+</div>
+
+<script>
+const message = [
+  "Anh xin lỗi vì đã để em cảm thấy mình đứng sau ai đó.",
+  "Cảm giác đó không đáng có.",
+  "",
+  "Em không xuất hiện để thay thế ai cả.",
+  "Em xuất hiện vì anh muốn nắm tay em.",
+  "Và anh đã sai khi không làm em yên tâm."
+];
+
+let i = 0;
+const textBox = document.getElementById("text");
+
+function openGift() {
+  document.getElementById("screen1").classList.add("hidden");
+  document.getElementById("screen2").classList.remove("hidden");
+  typeText();
+}
+
+function typeText() {
+  if (i < message.length) {
+    textBox.innerHTML += message[i] + "<br>";
+    i++;
+    setTimeout(typeText, 700);
+  }
+}
+
+function next() {
+  document.getElementById("screen2").classList.add("hidden");
+  document.getElementById("screen3").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
 
