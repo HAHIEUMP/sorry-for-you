@@ -6,33 +6,26 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(120deg, #ff9a9e, #fad0c4);
-
-  /* QUAN TRỌNG */
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-/* Màn hình */
+/* MÀN */
 .screen {
   display: none;
   text-align: center;
-  padding: 40px 20px 120px; /* chừa chỗ cho nút */
-  animation: fade 1.2s ease;
-
-  min-height: 100vh; /* mỗi màn = 1 trang */
+  padding: 40px 20px 120px;
+  min-height: 100vh;
+  animation: fade 1s ease;
 }
 
 .screen.active {
   display: block;
 }
 
-/* Chữ */
-h1, h2 {
-  color: #fff;
-}
-
-p {
+/* CHỮ */
+h1, h2, p {
   color: #fff;
 }
 
@@ -42,7 +35,7 @@ p {
   margin-top: 15px;
 }
 
-/* Nút */
+/* NÚT */
 button {
   margin-top: 30px;
   padding: 12px 28px;
@@ -54,80 +47,64 @@ button {
   cursor: pointer;
 }
 
-/* Ảnh + chữ */
+/* ẢNH */
 .photo-block {
-  margin: 18px auto;
-  animation: fade 1.2s ease;
-  max-width: 320px;   /* KHÓA ĐỘ RỘNG */
+  max-width: 260px;
+  margin: 20px auto;
 }
 
-.photo-block p {
-  font-size: 16px;
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-/* ẢNH – FIX CHÍNH Ở ĐÂY */
 .photo-block img {
-  width: 180px !important;   /* KHÓA CỨNG */
-  height: auto !important;
+  width: 180px !important;
   max-width: 180px !important;
-  max-height: 180px !important;
-
-  display: block;
-  margin: 0 auto;
-
-  object-fit: contain;
+  height: auto;
   border-radius: 14px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 }
 
+/* CHIBI NHẢY */
+.chibi {
+  width: 140px;
+  margin: 20px auto;
+  display: block;
+  animation: jump 1.2s infinite ease-in-out;
+}
 
-/* Trái tim */
-.heart {
+/* CHỮ RƠI */
+.falling-text {
   position: fixed;
-  top: -10px;
-  color: #ff5a7a;
-  font-size: 20px;
-  animation: fall linear infinite;
+  top: -20px;
+  font-size: 14px;
+  color: #fff;
+  animation: fallText linear forwards;
   pointer-events: none;
 }
 
-/* Animation */
+/* ANIMATION */
 @keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fall {
+@keyframes jump {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes fallText {
   to {
     transform: translateY(110vh);
     opacity: 0;
   }
 }
 
-/* Responsive điện thoại */
+.small {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* MOBILE */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 26px;
-  }
-
-  h2 {
-    font-size: 22px;
-  }
-
-  .text {
-    font-size: 16px;
-  }
-
   .photo-block img {
-    max-width: 220px;
-    max-height: 220px;
+    width: 150px !important;
   }
 }
