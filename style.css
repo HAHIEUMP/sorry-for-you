@@ -1,1 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  animation: fade 1.2s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+h1, h2 {
+  color: white;
+}
+
+p {
+  color: white;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #e75480;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.images img {
+  width: 140px;
+  max-width: 40vw;
+  border-radius: 15px;
+  margin: 10px;
+  animation: float 3s infinite;
+}
+
+/* Trái tim */
+.heart {
+  position: fixed;
+  top: -10px;
+  color: #ff5a7a;
+  font-size: 20px;
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+/* Animation */
+@keyframes fade {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes float {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+  100% {transform: translateY(0);}
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 600px) {
+  p {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 26px;
+  }
+}
 
