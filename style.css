@@ -10,6 +10,7 @@ body {
   overflow: hidden;
 }
 
+/* Màn hình */
 .screen {
   display: none;
   text-align: center;
@@ -21,39 +22,50 @@ body {
   display: block;
 }
 
+/* Chữ */
 h1, h2 {
-  color: white;
+  color: #fff;
 }
 
 p {
-  color: white;
-  font-size: 18px;
-  line-height: 1.6;
+  color: #fff;
 }
 
+.text {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-top: 15px;
+}
+
+/* Nút */
 button {
-  margin-top: 25px;
-  padding: 12px 26px;
+  margin-top: 30px;
+  padding: 12px 28px;
   border: none;
   border-radius: 30px;
-  background: white;
+  background: #fff;
   color: #e75480;
   font-size: 16px;
   cursor: pointer;
 }
 
-.images {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Ảnh + chữ */
+.photo-block {
+  margin: 28px 0;
+  animation: fade 1.2s ease;
 }
 
-.images img {
-  width: 140px;
-  max-width: 40vw;
-  border-radius: 15px;
-  margin: 10px;
-  animation: float 3s infinite;
+.photo-block p {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.photo-block img {
+  width: 170px;
+  max-width: 45vw;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* Trái tim */
@@ -68,14 +80,14 @@ button {
 
 /* Animation */
 @keyframes fade {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes float {
-  0% {transform: translateY(0);}
-  50% {transform: translateY(-10px);}
-  100% {transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fall {
@@ -85,13 +97,17 @@ button {
   }
 }
 
-/* Responsive cho điện thoại */
+/* Responsive điện thoại */
 @media (max-width: 600px) {
-  p {
-    font-size: 16px;
-  }
   h1 {
     font-size: 26px;
   }
-}
 
+  h2 {
+    font-size: 22px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
