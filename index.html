@@ -1,131 +1,63 @@
-<!-- TEST VERSION 2 -->
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anh xin lỗi em</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-  overflow: hidden;
-}
-
-.page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 20px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1s;
-}
-
-.page.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.card {
-  background: white;
-  padding: 30px 25px;
-  border-radius: 24px;
-  max-width: 380px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-h2 {
-  color: #ef476f;
-}
-
-button {
-  margin-top: 20px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 30px;
-  background: #ef476f;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.heart {
-  font-size: 60px;
-  animation: beat 1s infinite;
-}
-
-@keyframes beat {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gửi em 💗</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<audio id="music" src="https://cdn.pixabay.com/audio/2022/10/25/audio_8e0a9b26c4.mp3"></audio>
+<!-- Nhạc nền -->
+<audio id="bgm" src="music.mp3" loop></audio>
 
-<div class="page active" id="p1">
-  <div class="card">
-    <h2>Anh có điều muốn nói…</h2>
-    <button onclick="next(2)">Bấm vào đây 💌</button>
-  </div>
+<!-- Trái tim rơi -->
+<div id="hearts"></div>
+
+<!-- MÀN 1 -->
+<div class="screen active" id="s1">
+  <h1>Em à…</h1>
+  <p>Anh có điều rất quan trọng muốn nói</p>
+  <button onclick="nextScreen(2)">Bấm vào đây nhé</button>
 </div>
 
-<div class="page" id="p2">
-  <div class="card">
-    <h2>Anh xin lỗi em</h2>
-    <p>
-      Anh chưa từng xem em là người thay thế.  
-      Anh đã làm em buồn, làm em khóc…  
-      Và anh hối hận vì điều đó.
-    </p>
-    <button onclick="next(3)">Tiếp 💗</button>
-  </div>
+<!-- MÀN 2 -->
+<div class="screen" id="s2">
+  <h2>Anh xin lỗi</h2>
+  <p class="type">
+    Xin lỗi vì đã làm em tổn thương.<br>
+    Xin lỗi vì để em nghĩ mình là người thay thế…
+  </p>
+  <button onclick="nextScreen(3)">Anh nói tiếp</button>
 </div>
 
-<div class="page" id="p3">
-  <div class="card">
-    <p>
-      Em rất đặc biệt.  
-      Đặc biệt đến mức anh sợ mất em.  
-      Và anh muốn giữ em, bằng sự chân thành.
-    </p>
-    <button onclick="next(4)">...</button>
+<!-- MÀN 3 -->
+<div class="screen" id="s3">
+  <h2>Những điều anh chưa nói</h2>
+  <div class="images">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
   </div>
+  <button onclick="nextScreen(4)">Tiếp nhé em</button>
 </div>
 
-<div class="page" id="p4">
-  <div class="card">
-    <div class="heart">❤️</div>
-    <p>Anh mong em cho anh một cơ hội…</p>
-  </div>
+<!-- MÀN 4 -->
+<div class="screen" id="s4">
+  <h2>Em là hiện tại & tương lai</h2>
+  <p>
+    Không phải quá khứ<br>
+    Không phải ai khác<br>
+    Chỉ là em
+  </p>
+  <button onclick="nextScreen(5)">Còn nữa…</button>
 </div>
 
-<script>
-function next(n) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('p' + n).classList.add('active');
-  document.getElementById('music').play();
-}
-</script>
+<!-- MÀN 5 -->
+<div class="screen" id="s5">
+  <h1>Cho anh một cơ hội nhé?</h1>
+  <p>Anh không hoàn hảo, nhưng anh thật lòng.</p>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
