@@ -13,8 +13,8 @@ function nextScreen(num) {
 
 function createFallingText() {
   const texts = [
-    "xin lỗi nha 💗",
-    "đừng buồn nữa nha",
+    "xin lỗi công chúa của anh 💗",
+    "đừng buồn anh nữa nha",
     "anh thương em",
     "cười lên nè 😆",
     "💗💗💗"
