@@ -69,14 +69,19 @@ button {
 
 /* ẢNH – FIX CHÍNH Ở ĐÂY */
 .photo-block img {
-  width: 100%;
-  max-width: 260px;     /* ảnh KHÔNG vượt quá */
-  max-height: 260px;    /* KHÓA CHIỀU CAO */
-  object-fit: contain;
+  width: 180px !important;   /* KHÓA CỨNG */
+  height: auto !important;
+  max-width: 180px !important;
+  max-height: 180px !important;
 
+  display: block;
+  margin: 0 auto;
+
+  object-fit: contain;
   border-radius: 14px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
 }
+
 
 /* Trái tim */
 .heart {
