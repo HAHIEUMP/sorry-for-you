@@ -51,7 +51,7 @@ button {
 
 /* Ảnh + chữ */
 .photo-block {
-  margin: 28px 0;
+  margin: 14px 0;
   animation: fade 1.2s ease;
 }
 
@@ -62,11 +62,11 @@ button {
 }
 
 .photo-block img {
-  width: 140px;        /* kích thước chuẩn */
-  max-width: 80%;      /* không phóng quá màn hình */
+  width: 110px;          /* nhỏ hẳn lại */
+  max-width: 70%;
   height: auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
 }
 
 
