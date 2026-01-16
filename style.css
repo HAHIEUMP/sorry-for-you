@@ -62,11 +62,13 @@ button {
 }
 
 .photo-block img {
-  width: 170px;
-  max-width: 45vw;
+  width: 140px;        /* kích thước chuẩn */
+  max-width: 80%;      /* không phóng quá màn hình */
+  height: auto;
   border-radius: 16px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
 }
+
 
 /* Trái tim */
 .heart {
