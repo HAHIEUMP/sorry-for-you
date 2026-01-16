@@ -5,210 +5,123 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anh xin lỗi em</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
-  height: 100vh;
-  background: radial-gradient(circle at top, #fbc2eb, #a6c1ee);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
   overflow: hidden;
 }
 
-.overlay {
+.page {
   position: absolute;
-  inset: 0;
-  backdrop-filter: blur(6px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s;
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .card {
-  position: relative;
-  background: rgba(255,255,255,0.92);
-  width: 90%;
+  background: white;
+  padding: 30px 25px;
+  border-radius: 24px;
   max-width: 380px;
-  padding: 30px 24px;
-  border-radius: 26px;
-  text-align: center;
   box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-  animation: fadeUp 1s ease;
+  animation: float 4s ease-in-out infinite;
 }
 
-.hidden { display: none; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-h2 { color: #ef476f; margin-top: 0; }
-
-p {
-  color: #444;
-  line-height: 1.7;
-  font-size: 16px;
+h2 {
+  color: #ef476f;
 }
 
 button {
-  margin-top: 24px;
-  padding: 10px 30px;
+  margin-top: 20px;
+  padding: 12px 24px;
   border: none;
   border-radius: 30px;
   background: #ef476f;
   color: white;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
 }
 
-button:hover { background: #d6336c; }
-
-img {
-  width: 100%;
-  border-radius: 18px;
-  margin-top: 18px;
-  animation: zoom 1.5s ease;
+.heart {
+  font-size: 60px;
+  animation: beat 1s infinite;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoom {
-  from { transform: scale(0.85); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* Ánh sáng */
-.light {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background: rgba(255,255,255,0.35);
-  border-radius: 50%;
-  animation: float 10s infinite linear;
-}
-
-@keyframes float {
-  from { transform: translateY(110vh); }
-  to { transform: translateY(-10vh); }
+@keyframes beat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
 }
 </style>
 </head>
 
 <body>
 
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+<audio id="music" src="https://cdn.pixabay.com/audio/2022/10/25/audio_8e0a9b26c4.mp3"></audio>
 
-<div class="overlay"></div>
-
-<!-- MÀN 1 -->
-<div class="card" id="s1">
-  <h2>🌙 Chậm một chút nhé</h2>
-  <p>
-    Không cần phải đọc ngay.<br>
-    Khi nào em sẵn sàng,<br>
-    hãy chạm vào đây.
-  </p>
-  <button onclick="start()">Bắt đầu</button>
+<div class="page active" id="p1">
+  <div class="card">
+    <h2>Anh có điều muốn nói…</h2>
+    <button onclick="next(2)">Bấm vào đây 💌</button>
+  </div>
 </div>
 
-<!-- MÀN 2 -->
-<div class="card hidden" id="s2">
-  <h2>Gửi em</h2>
-  <p id="type"></p>
-  <button onclick="go(2)">Tiếp</button>
+<div class="page" id="p2">
+  <div class="card">
+    <h2>Anh xin lỗi em</h2>
+    <p>
+      Anh chưa từng xem em là người thay thế.  
+      Anh đã làm em buồn, làm em khóc…  
+      Và anh hối hận vì điều đó.
+    </p>
+    <button onclick="next(3)">Tiếp 💗</button>
+  </div>
 </div>
 
-<!-- MÀN 3 -->
-<div class="card hidden" id="s3">
-  <h2>Anh biết</h2>
-  <p>
-    Anh đã làm em buồn.<br>
-    Không phải buồn một chút,<br>
-    mà là buồn rất lâu.<br><br>
-    Và điều đó không hề nhỏ.
-  </p>
-  <button onclick="go(3)">Tiếp</button>
+<div class="page" id="p3">
+  <div class="card">
+    <p>
+      Em rất đặc biệt.  
+      Đặc biệt đến mức anh sợ mất em.  
+      Và anh muốn giữ em, bằng sự chân thành.
+    </p>
+    <button onclick="next(4)">...</button>
+  </div>
 </div>
 
-<!-- MÀN 4 -->
-<div class="card hidden" id="s4">
-  <h2>Điều anh xin lỗi</h2>
-  <p>
-    Xin lỗi vì đã để em cảm thấy<br>
-    mình không đủ quan trọng.<br><br>
-    Xin lỗi vì đã không che chở<br>
-    cho cảm xúc của em sớm hơn.
-  </p>
-  <button onclick="go(4)">Tiếp</button>
-</div>
-
-<!-- MÀN 5 -->
-<div class="card hidden" id="s5">
-  <h2>Điều anh chắc chắn</h2>
-  <img src="us.jpg">
-  <p>
-    Em không phải người thay thế.<br>
-    Em là người anh yêu.<br>
-    Và anh đã yêu rất nghiêm túc.
-  </p>
-  <button onclick="go(5)">Tiếp</button>
-</div>
-
-<!-- MÀN 6 – SURPRISE -->
-<div class="card hidden" id="s6">
-  <h2>🤍</h2>
-  <p>
-    Anh không mong em tha thứ ngay.<br>
-    Anh chỉ mong em biết rằng:<br><br>
-    Anh ở đây.<br>
-    Không bỏ đi.<br>
-    Không so sánh.<br>
-    Không thay thế.
-  </p>
+<div class="page" id="p4">
+  <div class="card">
+    <div class="heart">❤️</div>
+    <p>Anh mong em cho anh một cơ hội…</p>
+  </div>
 </div>
 
 <script>
-const music = document.getElementById("music");
-
-const text = [
-  "Anh xin lỗi vì đã làm em tổn thương.",
-  "Không phải vì anh không thương em,",
-  "mà vì anh đã không đủ tinh tế.",
-  "",
-  "Em không đáng phải chịu những cảm giác đó.",
-  "Và anh xin lỗi vì đã để điều đó xảy ra."
-];
-
-let i = 0;
-const box = document.getElementById("type");
-
-function typeText() {
-  if (i < text.length) {
-    box.innerHTML += text[i] + "<br>";
-    i++;
-    setTimeout(typeText, 900);
-  }
-}
-
-function start() {
-  music.play();
-  document.getElementById("s1").classList.add("hidden");
-  document.getElementById("s2").classList.remove("hidden");
-  typeText();
-}
-
-function go(n) {
-  document.getElementById("s"+n).classList.add("hidden");
-  document.getElementById("s"+(n+1)).classList.remove("hidden");
-}
-
-/* ánh sáng bay */
-for(let i=0;i<8;i++){
-  const l=document.createElement("div");
-  l.className="light";
-  l.style.left=Math.random()*100+"vw";
-  l.style.animationDuration=8+Math.random()*6+"s";
-  document.body.appendChild(l);
+function next(n) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('p' + n).classList.add('active');
+  document.getElementById('music').play();
 }
 </script>
 
