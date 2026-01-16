@@ -1,24 +1,33 @@
-function nextScreen(n) {
-  document.querySelector('.screen.active').classList.remove('active');
-  document.getElementById('s' + n).classList.add('active');
+function playMusic() {
+  document.getElementById("bgm").play();
+}
 
-  if (n === 2) {
-    document.getElementById('bgm').play();
+function nextScreen(num) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById("s" + num).classList.add("active");
+
+  if (num === 6) {
+    setInterval(createFallingText, 400);
   }
 }
 
-// Trái tim rơi
-setInterval(() => {
-  const heart = document.createElement('div');
-  heart.className = 'heart';
-  heart.innerHTML = '❤';
-  heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.fontSize = (15 + Math.random() * 20) + 'px';
-  heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+function createFallingText() {
+  const texts = [
+    "xin lỗi nha 💗",
+    "đừng buồn nữa nha",
+    "anh thương em",
+    "cười lên nè 😆",
+    "💗💗💗"
+  ];
 
-  document.body.appendChild(heart);
+  const span = document.createElement("span");
+  span.className = "falling-text";
+  span.innerText = texts[Math.floor(Math.random() * texts.length)];
 
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
-}, 300);
+  span.style.left = Math.random() * window.innerWidth + "px";
+  span.style.animationDuration = 3 + Math.random() * 2 + "s";
+
+  document.body.appendChild(span);
+
+  setTimeout(() => span.remove(), 5000);
+}
