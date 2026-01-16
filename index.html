@@ -17,46 +17,61 @@
 <!-- MÀN 1 -->
 <div class="screen active" id="s1">
   <h1>Em à…</h1>
-  <p>Anh có điều rất quan trọng muốn nói</p>
+  <p>Anh có vài điều muốn nói, chỉ mong em đọc</p>
   <button onclick="nextScreen(2)">Bấm vào đây nhé</button>
 </div>
 
 <!-- MÀN 2 -->
 <div class="screen" id="s2">
   <h2>Anh xin lỗi</h2>
-  <p class="type">
-    Xin lỗi vì đã làm em tổn thương.<br>
-    Xin lỗi vì để em nghĩ mình là người thay thế…
+  <p class="text">
+    Xin lỗi vì đã làm em buồn.<br>
+    Xin lỗi vì để em nghĩ mình là người thay thế.<br><br>
+    Điều đó chưa bao giờ là sự thật.
   </p>
-  <button onclick="nextScreen(3)">Anh nói tiếp</button>
+  <button onclick="nextScreen(3)">Anh muốn cho em xem cái này</button>
 </div>
 
-<!-- MÀN 3 -->
+<!-- MÀN 3: ẢNH + LỜI -->
 <div class="screen" id="s3">
-  <h2>Những điều anh chưa nói</h2>
-  <div class="images">
-    <img src="img1.jpg">
-    <img src="img2.jpg">
-    <img src="img3.jpg">
+  <h2>Những điều anh chưa từng nói</h2>
+
+  <div class="photo-block">
+    <p>Khoảnh khắc này, anh thật sự hạnh phúc.</p>
+    <img src="img1.jpg" alt="Ảnh của hai đứa">
   </div>
-  <button onclick="nextScreen(4)">Tiếp nhé em</button>
+
+  <div class="photo-block">
+    <p>Em là chính em, không phải ai thay thế ai cả.</p>
+    <img src="img2.jpg" alt="Ảnh của em">
+  </div>
+
+  <div class="photo-block">
+    <p>Anh – người đã làm em buồn, và đang học cách yêu cho đúng.</p>
+    <img src="img3.jpg" alt="Ảnh của anh">
+  </div>
+
+  <button onclick="nextScreen(4)">Em đọc tiếp nhé</button>
 </div>
 
 <!-- MÀN 4 -->
 <div class="screen" id="s4">
-  <h2>Em là hiện tại & tương lai</h2>
-  <p>
-    Không phải quá khứ<br>
-    Không phải ai khác<br>
-    Chỉ là em
+  <h2>Em quan trọng với anh</h2>
+  <p class="text">
+    Không phải vì quá khứ.<br>
+    Không phải vì thói quen.<br>
+    Mà vì em – ở hiện tại.
   </p>
-  <button onclick="nextScreen(5)">Còn nữa…</button>
+  <button onclick="nextScreen(5)">Điều cuối cùng</button>
 </div>
 
 <!-- MÀN 5 -->
 <div class="screen" id="s5">
   <h1>Cho anh một cơ hội nhé?</h1>
-  <p>Anh không hoàn hảo, nhưng anh thật lòng.</p>
+  <p class="text">
+    Anh không hứa hoàn hảo.<br>
+    Chỉ hứa chân thành và không làm em tổn thương thêm lần nữa.
+  </p>
 </div>
 
 <script src="script.js"></script>
