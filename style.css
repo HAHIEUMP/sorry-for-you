@@ -6,16 +6,21 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(120deg, #ff9a9e, #fad0c4);
-  height: 100vh;
-  overflow: hidden;
+
+  /* QUAN TRỌNG */
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Màn hình */
 .screen {
   display: none;
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 20px 120px; /* chừa chỗ cho nút */
   animation: fade 1.2s ease;
+
+  min-height: 100vh; /* mỗi màn = 1 trang */
 }
 
 .screen.active {
@@ -51,8 +56,9 @@ button {
 
 /* Ảnh + chữ */
 .photo-block {
-  margin: 14px 0;
+  margin: 18px auto;
   animation: fade 1.2s ease;
+  max-width: 320px;   /* KHÓA ĐỘ RỘNG */
 }
 
 .photo-block p {
@@ -61,14 +67,16 @@ button {
   margin-bottom: 10px;
 }
 
+/* ẢNH – FIX CHÍNH Ở ĐÂY */
 .photo-block img {
-  width: 110px;          /* nhỏ hẳn lại */
-  max-width: 70%;
-  height: auto;
+  width: 100%;
+  max-width: 260px;     /* ảnh KHÔNG vượt quá */
+  max-height: 260px;    /* KHÓA CHIỀU CAO */
+  object-fit: contain;
+
   border-radius: 14px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
 }
-
 
 /* Trái tim */
 .heart {
@@ -111,5 +119,10 @@ button {
 
   .text {
     font-size: 16px;
+  }
+
+  .photo-block img {
+    max-width: 220px;
+    max-height: 220px;
   }
 }
